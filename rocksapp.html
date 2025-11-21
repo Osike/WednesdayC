@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart Downloader</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #flowchart {
+            margin: 20px 0;
+            text-align: center;
+            overflow-x: auto;
+            background-color: white;
+        }
+        .info {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .status {
+            text-align: center;
+            margin: 10px 0;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biology Quiz Program Flowchart</h1>
+        
+        <div class="info">
+            <strong>Instructions:</strong> Wait for the flowchart to load, then click the "Download as PNG" button to save it as an image file.
+        </div>
+
+        <div class="button-container">
+            <button id="downloadBtn" onclick="downloadAsPNG()" disabled>📥 Download as PNG</button>
+        </div>
+        
+        <div class="status" id="status">Loading flowchart...</div>
+
+        <div id="flowchart" class="mermaid">
+flowchart TD
+    Start([START]) --> Welcome[Display Welcome Message]
+    Welcome --> InputName[Input Player Name]
+    InputName --> InitVars[Initialize totalScore = 0]
+    
+    InitVars --> L1Start[Display Level 1: Basic Biology]
+    L1Start --> L1Play[Play Level 1<br/>10 Questions]
+    
+    L1Play --> L1Loop{For each question<br/>i = 0 to 9}
+    L1Loop -->|Next Question| DisplayQ1[Display Question i+1]
+    DisplayQ1 --> GetAnswer1[Get User Answer]
+    GetAnswer1 --> CheckAns1{Answer<br/>Correct?}
+    CheckAns1 -->|Yes| Correct1[Display 'Correct!'<br/>score++]
+    CheckAns1 -->|No| Wrong1[Display 'Incorrect'<br/>Show correct answer]
+    Correct1 --> L1Loop
+    Wrong1 --> L1Loop
+    L1Loop -->|All Done| L1Score[Display Level 1 Score<br/>score1]
+    
+    L1Score --> CheckL1{score1 >= 8?}
+    CheckL1 -->|No| FailL1[totalScore = score1<br/>score2 = 0, score3 = 0]
+    FailL1 --> FinalCalc1[Calculate percentage<br/>totalScore/30 × 100]
+    FinalCalc1 --> DisplayFinal1[Display Final Results]
+    DisplayFinal1 --> End1([END])
+    
+    CheckL1 -->|Yes| PassL1[totalScore += score1<br/>Display Congratulations]
+    PassL1 --> L2Start[Display Level 2: Human Body and Bones]
+    
+    L2Start --> L2Play[Play Level 2<br/>10 Questions]
+    L2Play --> L2Loop{For each question<br/>i = 0 to 9}
+    L2Loop -->|Next Question| DisplayQ2[Display Question i+1]
+    DisplayQ2 --> GetAnswer2[Get User Answer]
+    GetAnswer2 --> CheckAns2{Answer<br/>Correct?}
+    CheckAns2 -->|Yes| Correct2[Display 'Correct!'<br/>score++]
+    CheckAns2 -->|No| Wrong2[Display 'Incorrect'<br/>Show correct answer]
+    Correct2 --> L2Loop
+    Wrong2 --> L2Loop
+    L2Loop -->|All Done| L2Score[Display Level 2 Score<br/>score2]
+    
+    L2Score --> CheckL2{score2 >= 8?}
+    CheckL2 -->|No| FailL2[totalScore += score2<br/>score3 = 0]
+    FailL2 --> FinalCalc2[Calculate percentage<br/>totalScore/30 × 100]
+    FinalCalc2 --> DisplayFinal2[Display Final Results]
+    DisplayFinal2 --> End2([END])
+    
+    CheckL2 -->|Yes| PassL2[totalScore += score2<br/>Display Great Job]
+    PassL2 --> L3Start[Display Level 3: Cell Biology and Genetics]
+    
+    L3Start --> L3Play[Play Level 3<br/>10 Questions]
+    L3Play --> L3Loop{For each question<br/>i = 0 to 9}
+    L3Loop -->|Next Question| DisplayQ3[Display Question i+1]
+    DisplayQ3 --> GetAnswer3[Get User Answer]
+    GetAnswer3 --> CheckAns3{Answer<br/>Correct?}
+    CheckAns3 -->|Yes| Correct3[Display 'Correct!'<br/>score++]
+    CheckAns3 -->|No| Wrong3[Display 'Incorrect'<br/>Show correct answer]
+    Correct3 --> L3Loop
+    Wrong3 --> L3Loop
+    L3Loop -->|All Done| L3Score[Display Level 3 Score<br/>score3]
+    
+    L3Score --> CompleteGame[totalScore += score3]
+    CompleteGame --> FinalCalc3[Calculate percentage<br/>totalScore/30 × 100]
+    FinalCalc3 --> DisplayFinal3[Display Final Results<br/>All 3 Level Scores]
+    DisplayFinal3 --> CheckPerf{Check<br/>Percentage}
+    
+    CheckPerf -->|>= 90%| Excellent[Display: Excellent!]
+    CheckPerf -->|75-89%| Good[Display: Good!]
+    CheckPerf -->|50-74%| Improve[Display: Can Improve!]
+    CheckPerf -->|< 50%| Repeat[Display: Repeat the Quiz!]
+    
+    Excellent --> ThankYou[Display Thank You Message]
+    Good --> ThankYou
+    Improve --> ThankYou
+    Repeat --> ThankYou
+    ThankYou --> End3([END])
+    
+    style Start fill:#90EE90
+    style End1 fill:#FFB6C6
+    style End2 fill:#FFB6C6
+    style End3 fill:#90EE90
+    style FailL1 fill:#FFB6C6
+    style FailL2 fill:#FFB6C6
+    style PassL1 fill:#90EE90
+    style PassL2 fill:#90EE90
+    style Excellent fill:#90EE90
+    style Good fill:#87CEEB
+    style Improve fill:#FFD700
+    style Repeat fill:#FFB6C6
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                curve: 'basis',
+                padding: 20
+            }
+        });
+
+        // Enable button once mermaid renders
+        setTimeout(() => {
+            const svg = document.querySelector('#flowchart svg');
+            if (svg) {
+                document.getElementById('downloadBtn').disabled = false;
+                document.getElementById('status').textContent = 'Flowchart ready! Click the button to download.';
+                document.getElementById('status').style.color = '#4CAF50';
+            }
+        }, 2000);
+
+        async function downloadAsPNG() {
+            const btn = document.getElementById('downloadBtn');
+            const status = document.getElementById('status');
+            
+            btn.disabled = true;
+            btn.textContent = '⏳ Generating image...';
+            status.textContent = 'Creating your image, please wait...';
+            status.style.color = '#666';
+
+            try {
+                const flowchartElement = document.getElementById('flowchart');
+                
+                // Use html2canvas to capture the flowchart
+                const canvas = await html2canvas(flowchartElement, {
+                    backgroundColor: '#ffffff',
+                    scale: 2, // Higher quality
+                    logging: false,
+                    useCORS: true
+                });
+
+                // Convert to blob and download
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.download = 'biology_quiz_flowchart.png';
+                    link.href = url;
+                    link.click();
+                    URL.revokeObjectURL(url);
+                    
+                    // Reset button
+                    btn.disabled = false;
+                    btn.textContent = '📥 Download as PNG';
+                    status.textContent = 'Download complete! Click again to download another copy.';
+                    status.style.color = '#4CAF50';
+                });
+            } catch (error) {
+                console.error('Error:', error);
+                btn.disabled = false;
+                btn.textContent = '📥 Download as PNG';
+                status.textContent = 'Error creating image. Please try again.';
+                status.style.color = '#f44336';
+            }
+        }
+    </script>
+</body>
+</html
