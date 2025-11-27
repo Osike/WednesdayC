@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Greenfield School</title>
+    <link rel="stylesheet" href="schooltyles.css">
+    <meta name="description" content="Greenfield School - Home, About and Contact" />
+    <style>/* small noscript-friendly adjustment for in-file fallback if CSS fails */
+        .top-banner{min-height:120px}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="top-banner" role="img" aria-label="School banner"></div>
+
+    <main class="container">
+        <section id="home" class="section home">
+            <h1>Greenfield School</h1>
+            <img class="hero-img" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=60" alt="Students at school">
+        </section>
+
+        <section id="about" class="section about">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <img class="about-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=60" alt="School building">
+                <p>
+                    Founded in 1990, Greenfield School has grown from a small community school into a place
+                    of academic excellence and caring. We focus on holistic development — strong academics,
+                    creative arts, and sports — so every student can thrive.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2>Contact</h2>
+            <p><strong>Address:</strong> 123 School Lane, Townsville</p>
+            <p><strong>Phone:</strong> +1 555 123 4567</p>
+            <p><strong>Email:</strong> info@greenfield.edu</p>
+        </section>
+
+        <!-- optional menu table if you want to include it later -->
+        <!-- table will flow below the banner and content because .menu-table is not absolutely positioned -->
+        <table class="menu-table" aria-label="Sample menu">
+            <thead>
+                <tr><th>Day</th><th>Breakfast</th><th>Lunch</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Mon</td><td>Porridge</td><td>Rice & Veg</td></tr>
+                <tr><td>Tue</td><td>Eggs</td><td>Spaghetti</td></tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer>
+        © 2025 Greenfield School
+    </footer>
+</body>
+</html>

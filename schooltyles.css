@@ -1,0 +1,100 @@
+/* styles.css - new stylesheet for the school site (replaces Design.css usage) */
+
+/* layout and typography */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: rgb(153, 147, 184);
+    color: #222;
+}
+
+h1, h2 {
+    color: #e82121;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+FOOTER {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #e81818;
+}
+
+/* top banner (image only at the top) */
+.top-banner {
+    width: 100%;
+    height: 220px;                /* adjust height to taste */
+    background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=60');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* simple centered navbar */
+.navbar {
+    background-color: #ef485c;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 12px 10px;
+}
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+.navbar a:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* main container */
+.container { max-width: 1000px; margin: 20px auto; padding: 0 16px; }
+
+/* sections */
+.section { margin-bottom: 28px; text-align: center; }
+.section h1, .section h2 { color: #e82121; margin-bottom: 12px; }
+
+/* home hero image */
+.hero-img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+
+/* about layout */
+.about-content { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.about-img { width: 320px; max-width: 100%; border-radius: 6px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+.about-content p { max-width: 600px; text-align: left; line-height: 1.6; margin: 0; }
+
+/* contact */
+.contact p { margin: 6px 0; }
+
+/* footer */
+footer { text-align: center; margin: 22px 0; color: #e81818; }
+
+/* keep menu-table usable if present (no absolute centering) */
+.menu-table {
+    position: static;
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+.menu-table th,
+.menu-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.menu-table th {
+    background-color: #ef485c;
+    color: #fff;
+}
+
+/* small screens */
+@media (max-width: 640px) {
+    .about-content { flex-direction: column; text-align: center; }
+    .about-content p { text-align: center; }
+    .navbar { gap: 12px; padding: 10px; }
+}
